@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Playlist</title>
+    <style>
+        /* Ajoutez ici votre CSS pour personnaliser l'apparence */
+    </style>
+</head>
+<body>
+    <h1>Ma Playlist</h1>
+    <ul id="playlist">
+        <!-- Les chansons seront ajoutées ici via JavaScript -->
+    </ul>
+
+    <audio id="audio" controls>
+        <source id="audio-source" src="" type="audio/mp3">
+    </audio>
+
+    <script>
+        const playlist = document.getElementById('playlist');
+        const audio = document.getElementById('audio');
+        const audioSource = document.getElementById('audio-source');
+
+        // Liste des fichiers audio dans le dossier "music"
+        const songs = [
+            'music/chanson1.mp3',
+            'music/chanson2.mp3',
+            'music/chanson3.mp3'
+            // Ajoutez d'autres chansons ici
+        ];
+
+        // Fonction pour charger et jouer une chanson
+        function playSong(songIndex) {
+            const song = songs[songIndex];
+            audioSource.src = song;
+            audio.load();
+            audio.play();
+        }
+
+        // Ajouter chaque chanson à la playlist
+        songs.forEach((song, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Chanson ${index + 1}`;
+            listItem.addEventListener('click', () => {
+                playSong(index);
+            });
+            playlist.appendChild(listItem);
+        });
+
+        // Lecture de la première chanson au chargement de la page
+        playSong(0);
+    </script>
+</body>
+</html>
