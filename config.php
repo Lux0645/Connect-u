@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "u739730891_connect";
-$password = "Salut2022!";
-$database = "u739730891_connect";
+$servername = "";
+$username = "";
+$password = "";
+$database = "";
 
 // Connexion à la base de données
 $conn = new mysqli($servername, $username, $password, $database);
